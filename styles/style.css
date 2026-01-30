@@ -3,11 +3,14 @@
 
 :root {
   --special-color: #f89641;
-  background-color: #e4d7c7;
+  --background-color: #e4d7c7;
+  --main-color1: #d9c8b4;
   --secondary-color: #1c1c1c;
+  
 }
 
 body {
+  background-color: var(--background-color);
   box-sizing: border-box;
   width: 99vw;
   display: flex;
@@ -52,7 +55,7 @@ p {
   align-items: center;
   justify-content: space-around;
   flex-wrap: nowrap;
-  background: var(background-color); /* Optional background */
+  background: var(--background-color); /* Optional background */
   border-radius: 5px;
   margin: 10px auto;
   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2); /* h v blur spread color */
@@ -152,7 +155,7 @@ p {
 }
 
 .card {
-  background-color: aliceblue;
+  background-color: var(--main-color1);
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
@@ -178,7 +181,7 @@ button {
   text-decoration: none; /* Remove underlines from <a> tags */
 
   /* Color and background */
-  background-color: var(--special-color);
+  background-color: var(--secondary-color);
   color: white; /* White text color */
 
   /* Font and appearance */
@@ -192,7 +195,7 @@ button {
 button:hover {
   /* Hover effect: changes background color when the user hovers over the button */
 
-  background-color: #008cba; /* A different color on hover */
+  background-color: var(--special-color); /* A different color on hover */
 }
 
 .news-letter-container {
@@ -209,7 +212,7 @@ button:hover {
 
 .news-letter-container::before {
   content: "";
-  background-image: url("../assets/news-letter-bg.png");
+  background-image: url("../assets/newslettercat.png");
   background-size: cover;
   position: absolute;
   /* top: 0;
@@ -227,7 +230,7 @@ footer {
   z-index: 999;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  background: rgb(236, 238, 247); /* Optional background */
+  background: var(--background-color); /* Optional background */
   /* max-width: fit-content; */
   padding: 40px;
   gap: 20px;
