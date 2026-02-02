@@ -179,13 +179,65 @@ p {
 }
 
 .banner {
-  margin: 10px auto;
+  --banner-top-space: 140px;
+  margin: var(--banner-top-space) auto 100px;
   display: grid;
   max-width: 90%;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   justify-items: flex-end;
   align-items: center;
   gap: 40px;
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+  z-index: 0;
+  --pattern-bleed: clamp(40px, 6vw, 120px);
+  --pattern-bleed-bottom: clamp(140px, 14vw, 360px);
+}
+
+/* Banner title only (avoid changing all .primary-font headings) */
+.banner h1.primary-font {
+  font-size: clamp(3.5rem, 5.5vw, 5rem);
+}
+
+.banner .banner-adoption {
+  display: inline-block;
+  transform: translateX(clamp(140px, 1vw, 64px));
+}
+
+.banner .banner-cat {
+  color: #000;
+}
+
+/* Subtle repeating paw-print pattern behind the banner */
+.banner::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  top: calc(-1 * (var(--pattern-bleed) + var(--banner-top-space)));
+  bottom: calc(-1 * var(--pattern-bleed-bottom));
+  --paw-bg: url("../assets/paw-pattern.png");
+  background-image: var(--paw-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  /* Fade the pattern towards the bottom */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.banner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .banner-image {
