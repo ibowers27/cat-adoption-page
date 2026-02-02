@@ -1,5 +1,6 @@
-@import url(https://fonts.gooogleapis.com/css2?family=Bagel+Fat+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap);
 
 :root {
   --special-color: #f89641;
@@ -21,6 +22,7 @@ body {
   width: full;
   height: auto;
   padding: 20px;
+  margin: 0;
   /* border: 1px solid black; */
 }
 p {
@@ -42,23 +44,35 @@ p {
 }
 
 .logo {
-  width: 110px; /* Set your desired width */
-  height: auto; /* Automatically adjusts to prevent distortion */
+  height: 70px;
+  width: auto; /* Automatically adjusts to prevent distortion */
+  max-height: 100%;
+  display: block;
 }
 
 .navbar {
-  position: fixed; /* helps keep the navbar stick to top*/
-  top: 0; /* helps keep the navbar stick to top*/
-  z-index: 999; /* Keeps navbar above other content */
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 999;
+  font-family: "Google Sans Flex", "Inter", system-ui, sans-serif;
+
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  background: var(--background-color); /* Optional background */
-  border-radius: 5px;
-  margin: 10px auto;
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.2); /* h v blur spread color */
+  justify-content: space-between;
+
+  background: var(--background-color);
+  height: 80px;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+
+.navbar nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .hero {
@@ -80,9 +94,12 @@ p {
 
 .horizontal-menu {
   display: flex; /* Aligns items in a row */
+  align-items: center;
   list-style: none; /* Removes bullet points */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
+  height: 100%;
+  gap: 25px;
 }
 .vertical-menu {
   display: flex; /* Aligns items in a col */
@@ -105,7 +122,7 @@ p {
   background-color: #262424;
 }
 .horizontal-menu li {
-  padding: 10px 10px; /* Adds spacing around menu items */
+  padding: 0; /* Adds spacing around menu items */
 }
 
 .vertical-menu li {
@@ -116,11 +133,48 @@ p {
 .horizontal-menu a {
   color: rgb(11, 13, 34);
   text-decoration: none; /* Removes underlines */
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: .85rem;
+  font-weight: 500;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .horizontal-menu a:hover {
+  color: var(--special-color);
+}
+
+/* Navbar button styles (Cats + Apply) */
+.navbar .nav-btn {
+  padding: 12px 16px;
+  border: 2px solid currentColor;
+  border-radius: 0; /* rectangular */
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.navbar .nav-btn i {
+  color: inherit; /* icon follows the link text color */
+}
+
+/* Cats: outline only */
+.navbar .nav-btn--outline {
+  background: transparent;
+  color: rgb(11, 13, 34);
+}
+
+/* Apply: solid black with white text+icon */
+.navbar .nav-btn--solid {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+/* Keep Apply solid/white even on hover (overrides .horizontal-menu a:hover) */
+.navbar .nav-btn--solid:hover {
+  background: #000;
+  border-color: #000;
   color: var(--special-color);
 }
 
@@ -245,7 +299,7 @@ footer {
     padding: auto;
   }
   .horizontal-menu li {
-    padding: 5px 5px; /* Adds spacing around menu items */
+    padding: 0 5px; /* Adds spacing around menu items */
   }
 
   .banner {
