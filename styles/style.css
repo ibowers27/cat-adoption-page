@@ -10,6 +10,9 @@
   --footer-text: rgba(0, 0, 0, 0.72);
   --footer-heading: rgba(0, 0, 0, 0.82);
   
+  --font-display: "Bagel Fat One", cursive;
+  --font-heading: "Merriweather", serif;
+  --font-body: "Google Sans Flex", sans-serif;
 }
 
 *,
@@ -26,6 +29,7 @@ body {
 
 body {
   background-color: var(--background-color);
+  font-family: var(--font-body);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -43,18 +47,39 @@ body {
 p {
   line-height: 1.6; /* Sets line spacing to 1.6 times the font size */
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+h1 {
+  font-size: clamp(3.5rem, 5.5vw, 5rem);
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
 .primary-font {
-  font-family: "Noto Serif", serif;
+  font-family: var(--font-heading);
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
   font-size: 3rem;
 }
-.secondary-font {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+.fat-title {
+  font-family: var(--font-display);
+  font-weight: normal;
+  font-size: 1.15em;
+  letter-spacing: -0.02em;
+  color: var(--secondary-color);
+}
+.secondary-font,
+p,
+button,
+input {
+  font-family: var(--font-body);
   font-weight: 400;
-  font-style: normal;
   font-size: 1.1rem;
 }
 
@@ -79,7 +104,7 @@ footer .footer-brand .logo {
   margin: 14px 0 0;
   padding-top: 12px;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: 1.15rem;
   color: var(--footer-text);
   max-width: 220px;
@@ -234,11 +259,6 @@ footer .footer-brand .logo {
   --pattern-bleed-bottom: clamp(140px, 14vw, 360px);
 }
 
-/* Banner title only (avoid changing all .primary-font headings) */
-.banner h1.primary-font {
-  font-size: clamp(3.5rem, 5.5vw, 5rem);
-}
-
 .banner .banner-brand {
   display: inline-block;
   margin-right: 0.08em;
@@ -339,6 +359,7 @@ button {
 
   /* Font and appearance */
   font-size: 16px; /* Increase font size */
+  font-family: var(--font-body);
   cursor: pointer; /* Change mouse cursor to a hand on hover */
   border: none; /* Remove default border */
   border-radius: 8px; /* Rounded corners */
@@ -378,14 +399,12 @@ button:hover {
 
 footer {
   width: 99%;
-  /* position: fixed; */
   bottom: 0;
   z-index: 999;
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
-  background: var(--background-color); /* Optional background */
-  /* max-width: fit-content; */
+  background: var(--background-color);
   padding: 40px;
   padding-bottom: 70px;
   gap: 30px;
@@ -419,6 +438,7 @@ footer {
 
 .footer-heading {
   margin: 0 0 10px;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
   color: var(--footer-heading);
@@ -435,6 +455,7 @@ footer .vertical-menu a {
   padding: 4px 0;
   border-radius: 0;
   color: var(--footer-text);
+  font-family: var(--font-body);
 }
 
 footer .vertical-menu a:hover {
@@ -462,7 +483,7 @@ footer .vertical-menu a:hover {
 
 .footer-copyright {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--footer-text);
 }
