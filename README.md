@@ -3,7 +3,7 @@
 ### 
 **Group Members:** Darius Beckford, Ivy Bowers
 
-This website is a static home page for Darvy, a local cat adoption center. We include a handy navigation bar with application options, an engaging and informational banner, a concise list of cats available, newsletter subscription options for interested viewers, and a nicely formatted footer for all contact/FAQ needs. This page is pure html and CSS.
+This website is a home page for Darvy, a local cat adoption center. We include a handy navigation bar with application options, an engaging and informational banner, a concise card-list of cats available, newsletter subscription options for interested viewers, and a nicely formatted footer for all contact/FAQ needs. Easily find our website among other tabs with our new tab Favicon, clearly displaying the logo of Darvy. This page is pure html and CSS with 4 newly added actions/interactivity buttons using JavaScript. These actions are: "Learn More" about each available cat, "Favorite" or "Star" your favorite cats to a list reachable in the NavBar, a "Clear Favorites" button to clear any list you've made in the "Cats"/Favorites tab of the navbar, and a "Subscribe" button to be added to the Darvy Newsletter. 
 
 ## Live Link:
 https://darvy-cat-adoption.netlify.app/

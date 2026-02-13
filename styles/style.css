@@ -218,6 +218,32 @@ footer .footer-brand .logo {
   margin-right: -6px;
 }
 
+/* Favorites count badge on Cats navbar button */
+.navbar #catsFavoritesBtn {
+  position: relative;
+}
+
+.favorites-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+  background: var(--special-color);
+  color: white;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+
+  border: 2px solid var(--background-color);
+}
+
 .navbar .nav-btn i {
   color: inherit; /* icon follows the link text color */
 }
@@ -332,9 +358,99 @@ footer .footer-brand .logo {
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
+  position: relative;
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
     0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Favorite star button (bottom-right of each card) */
+.favorite-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* Ensure this overrides the global button styles */
+.favorite-btn:hover {
+  background-color: transparent;
+}
+
+.favorite-btn i {
+  color: var(--special-color);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.favorite-btn:focus-visible {
+  outline: 2px solid var(--special-color);
+  outline-offset: 3px;
+}
+
+/* Favorites panel (toggled from navbar Cats button) */
+.favorites-panel {
+  position: fixed;
+  top: calc(80px + 10px);
+  right: 20px;
+  z-index: 998;
+
+  width: min(360px, calc(100vw - 40px));
+  max-height: calc(100vh - (80px + 30px));
+  overflow: auto;
+
+  padding: 14px 16px;
+  border-radius: 10px;
+  background-color: var(--main-color1);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.favorites-empty {
+  margin: 10px 0 0;
+  color: var(--secondary-color);
+}
+
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.favorite-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--secondary-color);
+}
+
+.favorite-chip img {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
 }
 .card img {
   /* Essential image styles */
@@ -518,6 +634,14 @@ footer .vertical-menu a:hover {
     padding: 5px;
   }
 
+  .favorites-panel {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    top: calc(80px + 10px);
+    max-height: calc(100vh - (80px + 20px));
+  }
+
   .email-div {
     display: flex;
     flex-direction: column;
@@ -563,4 +687,55 @@ footer .vertical-menu a:hover {
   .footer-social-icons {
     gap: 16px;
   }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-content {
+  background: var(--main-color1);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--special-color);
+  background: transparent;
 }

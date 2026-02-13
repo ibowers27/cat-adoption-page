@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Darvy: Local Cat Adoption</title>
-    <link rel="icon" type="image/png" href="../assets/darvy-logo.png"/>
+
+    <link rel="icon" type="image/png" href="../assets/darvy-logo.png"/> <!--Updated tab logo/icon-->
 
     <script
       src="https://kit.fontawesome.com/ae43ee1d0b.js"
@@ -26,8 +27,9 @@
           <li><a href="">About</a></li>
           <li><a href="">Contact</a></li>
           <li>
-            <a class="nav-btn nav-btn--outline" href="">
+            <a class="nav-btn nav-btn--outline" href="#" id="catsFavoritesBtn" aria-controls="favoritesPanel" aria-expanded="false">
               <i class="fa-solid fa-paw"></i> Cats
+              <span class="favorites-count-badge" id="favoritesCountBadge" hidden>0</span>
             </a>
           </li>
           <li>
@@ -64,53 +66,18 @@
         comes with a unique personality and charm! Adopt one today and give them a
         loving home. Stop by our store or click on an individual cat's icon below to learn more about them all.
       </p>
-      <div class="cards">
-        <div class="card">
-          <img src="../assets/catadoptee1.jpeg" alt="lilly" />
-          <h3>Leo [male, 2 yrs]</h3>
-          <button>Learn More</button>
+
+      <div class="favorites-panel" id="favoritesPanel" hidden>
+        <div class="favorites-panel__header">
+          <h3>Favorited Cats</h3>
+          <button type="button" id="clearFavoritesBtn">Clear Favorites</button>
         </div>
-        <div class="card">
-          <img src="../assets/catadoptee2.jpeg" alt="lilly" />
-          <h3>Hazel [female, 8 yrs]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee3.jpeg" alt="lilly" />
-          <h3>Bundt [male, 5 yrs]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee4.jpeg" alt="rose" />
-          <h3>Hugo [male, 9 mos]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee5.jpeg" alt="rose" />
-          <h3>Mocha [female, 3 yrs]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee6.jpeg" alt="rose" />
-          <h3>Quincy [male, 1 yr]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee7.jpeg" alt="fall" />
-          <h3>Snowball [female, 2 yrs]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee8.jpeg" alt="fall" />
-          <h3>Cheddar [male, 4 yrs]</h3>
-          <button>Learn More</button>
-        </div>
-        <div class="card">
-          <img src="../assets/catadoptee9.jpeg" alt="fall" />
-          <h3>Binx [male, 3 mos]</h3>
-          <button>Learn More</button>
-        </div>
+
+        <p id="favoritesEmpty" class="favorites-empty">No favorites yet — click a star.</p>
+        <div id="favoritesList" class="favorites-list"></div>
       </div>
+      <!--Remove repititve card creation, handle in app.js-->
+      <div class="cards" id="catCards"></div>
     </section>
     
     <section class="news-letter-container">
@@ -203,5 +170,15 @@
         <p class="footer-copyright">&copy; 2026 Darvy. All rights reserved.</p>
       </div>
     </footer>
+    <!--Formatting Learn More Modal-->
+    <div id="catModal" class="modal" hidden>
+      <div class="modal-content">
+        <button id="modalCloseBtn" class="modal-close" aria-label="Close">&times;</button>
+        <img id="modalImg" src="" alt="" />
+        <h2 id="modalName"></h2>
+        <p id="modalDetails"></p>
+      </div>
+    </div>
+    <script src="./scripts/app.js"></script>
   </body>
 </html>
